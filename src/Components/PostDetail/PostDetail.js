@@ -5,18 +5,18 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 600,
-        marginLeft: "370px",
-        marginTop: "10px",
-        border: "1px solid blue",
+        maxWidth: 800,
+      marginLeft: "400px",
+      marginRight: "400px",
+      marginTop: "10px",
+      backgroundColor: " #ff4dff",
+      border: "1px solid #074252"
     },
     media: {
-        height: 0,
+        height: 80,
     },
 });
 
@@ -36,7 +36,7 @@ const PostDetail = () => {
     }, [])
     //fetch data  for getting comments
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/comments?id=${exactInformation}`)
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${exactInformation}`)
             .then(res => res.json())
             .then(data => setComments(data))
     }, [])
@@ -44,15 +44,18 @@ const PostDetail = () => {
 
     const classes = useStyles();
     return (
+        
         <div className="post-detail-information">
             {/* <h1>{exactInformation} Yoo</h1>
             <h2>{id}</h2> */}
             {/*using Material ui for getting posts using dynamic route*/}
+
+            
             <Card className={classes.root}>
                 <CardActionArea>
 
                     <CardContent>
-                        <h2 style={{ color: 'Blue', textDecoration: 'underline' }}>DETAILS</h2>
+                        <h2 style={{ color: '#bfff00', textDecoration: 'underline' }}>DETAILS</h2>
                         <Typography gutterBottom variant="h5" component="h2">
                             <h3>ID: {id}</h3>
                         </Typography>
@@ -66,7 +69,9 @@ const PostDetail = () => {
                     </CardContent>
                 </CardActionArea>
             </Card>
+            
             <br />
+            
             {/*getting comments using dynamic route*/}
             <Card className={classes.root}>
            
@@ -74,47 +79,24 @@ const PostDetail = () => {
                 
 
                     <CardContent>
-                      <h2 style={{ color: 'Blue', textDecoration: 'underline' }}>COMMENTS</h2> 
-                      <Avatar alt="Cindy Baker" src="/static/images/avatar/2.jpg" />
-                    
+                      <h2 style={{ color: '#bfff00', textDecoration: 'underline' }}>COMMENTS</h2>
                         <Typography gutterBottom variant="h5" component="h2">
                             {
                                 comments.map(comments =>
-                                    <h3>ID: {comments.id}</h3>
-                                )
+                                <p style={{color: 'black', fontSize: '14px', fontWeight: 'bold'}}>
+                                <img style={{borderRadius: '50%'}} src="https://picsum.photos/40/40" alt=""/>
+                                <br/>
+                                 ID:{comments.id}
+                                 <br/>  Name: {comments.name} 
+                                <br/> Email: {comments.email} 
+                                <br/> Body: {comments.body}</p>)
 
-                            }
-                        
-                        </Typography>
-
-                           
-                    <Typography variant="body2" color="textSecondary" component="p" >
-                            {
-                            comments.map(comments =>
-                                <h4>Name: {comments.name}</h4>
-                            )
-                        }
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p" >
-                        {
-                            comments.map(comments =>
-                                <h4>Email: {comments.email}</h4>
-                            )
-                        }
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p" >
-                        {
-                            comments.map(comments =>
-                                <h4>Body: {comments.body}</h4>
-                            )
-                        }
-                    </Typography>
-
+                            }      
+                        </Typography>   
                     </CardContent>
+                   
                 </CardActionArea>
             </Card>
-
-
 
         </div >
 

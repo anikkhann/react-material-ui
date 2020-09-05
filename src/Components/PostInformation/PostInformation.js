@@ -6,15 +6,16 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import  './PostInformation.css'
-import { Link } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
       maxWidth: 800,
-      marginLeft: "80px",
-      marginTop: "20px",
-      border: "1px solid gold"
+      marginLeft: "400px",
+      marginRight: "400px",
+      marginTop: "10px",
+      backgroundColor: "#809fff",
+      border: "1px solid #074252"
     },
     media: {
       height: 80,
@@ -22,18 +23,17 @@ const useStyles = makeStyles({
   });
 
 const PostInformation = (props) => {
-    const {id, title, body } = props.post;
+    const {userId, id, title, body } = props.post;
     const history = useHistory();
-    const handleClick = (id) =>{
-        const url = `/information/${id}`;
+    const handleClick = (userId) =>{
+        const url = `/information/${userId}`;
         history.push(url);
     }
     const classes = useStyles();
     //showing post data by destructuring 
     return (
+        
         <div className="post-detail-information">
-  
-            <h1 style={{color: 'gold', marginLeft: '100px'}}>POST OF RANDOM PEOPLE'S</h1>
             <Card className={classes.root} >
             
                 <CardActionArea>
@@ -49,24 +49,20 @@ const PostInformation = (props) => {
                         <Typography variant="body2" color="textSecondary" component="p">
                            <h4> Body: {body}</h4>
                         </Typography>
-                        <Button variant="contained" color="secondary" onClick={() => handleClick(id)}>
+                        <Button variant="contained" color="secondary" onClick={() => handleClick(userId)}>
                              See Detail
                         </Button>
-                       
-                        
-                                                                    
+                                                                      
                     </CardContent>
-                     
-                    
-                  
+                         
                 </CardActionArea>
                 
                        
                 
             </Card>
-        
-            
         </div>
+
+        
 
     );
 };
