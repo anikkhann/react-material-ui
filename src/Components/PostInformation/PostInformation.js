@@ -29,6 +29,7 @@ const PostInformation = (props) => {
         history.push(url);
     }
     const classes = useStyles();
+    //showing post data by destructuring 
     return (
         <div className="post-detail-information">
   

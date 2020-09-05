@@ -8,6 +8,7 @@ const PostData = () => {
         .then(res => res.json())
         .then(data => setPost(data))
     }, [])
+    //send post data to PostInformation child component
     return (
         <div>
             {

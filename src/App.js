@@ -13,6 +13,7 @@ import '../src/App.css';
 
 
 function App() {
+  //parent component here and main route path and designation components bellow
   return (
     <div className="main-class">
       <Router>

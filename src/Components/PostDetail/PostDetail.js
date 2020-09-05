@@ -27,12 +27,14 @@ const PostDetail = () => {
     // const [name, email] = comments;
     // console.log(name);
     const { id, title, body } = information;
+    //fetch data for getting posts
     useEffect(() => {
         const url = `https://jsonplaceholder.typicode.com/posts/${exactInformation}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInformation(data))
     }, [])
+    //fetch data  for getting comments
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/comments?id=${exactInformation}`)
             .then(res => res.json())
@@ -45,7 +47,7 @@ const PostDetail = () => {
         <div className="post-detail-information">
             {/* <h1>{exactInformation} Yoo</h1>
             <h2>{id}</h2> */}
-
+            {/*using Material ui for getting posts using dynamic route*/}
             <Card className={classes.root}>
                 <CardActionArea>
 
@@ -65,6 +67,7 @@ const PostDetail = () => {
                 </CardActionArea>
             </Card>
             <br />
+            {/*getting comments using dynamic route*/}
             <Card className={classes.root}>
            
                 <CardActionArea>
