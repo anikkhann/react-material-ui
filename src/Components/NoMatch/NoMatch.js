@@ -1,3 +1,4 @@
+//if route is fake  it will show h1.
 import React from 'react';
 
 const NoMatch = () => {
