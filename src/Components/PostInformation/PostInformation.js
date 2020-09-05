@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom';
 const useStyles = makeStyles({
     root: {
       maxWidth: 800,
-      marginLeft: "350px",
+      marginLeft: "200px",
       marginTop: "20px",
       border: "1px solid gold"
     },
@@ -33,7 +33,7 @@ const PostInformation = (props) => {
     return (
         <div className="post-detail-information">
   
-            <h1 style={{color: 'gold', marginLeft: '500px'}}>POST OF RANDOM PEOPLE'S</h1>
+            <h1 style={{color: 'gold', marginLeft: '300px'}}>POST OF RANDOM PEOPLE'S</h1>
             <Card className={classes.root} >
             
                 <CardActionArea>
