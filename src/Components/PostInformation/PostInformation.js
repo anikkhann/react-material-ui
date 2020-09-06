@@ -10,10 +10,15 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 800,
-      marginLeft: "400px",
-      marginRight: "400px",
-      marginTop: "10px",
+      //maxWidth: 400,
+      width: "400px",
+      height: "320px",
+      float: "left",
+      margin: "5px",
+    //    marginLeft: "400px",
+    //    marginRight: "400px",
+    //    marginTop: "10px",
+     
       backgroundColor: "#809fff",
       border: "1px solid #074252"
     },
